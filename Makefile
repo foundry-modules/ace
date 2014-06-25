@@ -2,7 +2,7 @@ all: copy-entire-folder modularize-script minify-script
 
 include ../../build/modules.mk
 MODULE = ace
-SOURCE_SCRIPT_FOLDER = build/src-noconflict
+SOURCE_SCRIPT_FOLDER = build/src-min-noconflict
 SOURCE_SCRIPT_FILE_PREFIX =
 
 copy-entire-folder:
