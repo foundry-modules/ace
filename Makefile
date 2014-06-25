@@ -1,3 +1,15 @@
+all: copy-entire-folder modularize-script minify-script
+
+include ../../build/modules.mk
+MODULE = ace
+SOURCE_SCRIPT_FOLDER = build/src-noconflict
+SOURCE_SCRIPT_FILE_PREFIX =
+
+copy-entire-folder:
+	rm -fr ${TARGET_SCRIPT_FOLDER}
+	cp -Rp ${SOURCE_SCRIPT_FOLDER} ${TARGET_SCRIPT_FOLDER}
+	rm -fr ${TARGET_SCRIPT_FOLDER}/ace.js
+
 .PHONY : doc build clean dist
 
 pre_build:
@@ -5,7 +17,7 @@ pre_build:
 	mkdir -p build/src
 	mkdir -p build/demo/kitchen-sink
 	mkdir -p build/textarea/src
-	
+
 	cp -r demo/kitchen-sink/styles.css build/demo/kitchen-sink/styles.css
 	cp demo/kitchen-sink/logo.png build/demo/kitchen-sink/logo.png
 	cp -r doc/site/images build/textarea
